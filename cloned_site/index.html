@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agen AI - Cloned Preview</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #080808;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1f1f1f;
+      position: sticky;
+      top: 0;
+      background: rgba(8, 8, 8, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .badge {
+      font-size: 0.75rem;
+      background: #1e293b;
+      color: #38bdf8;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      border: 1px solid #38bdf844;
+    }
+    nav a {
+      color: #a1a1aa;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .cta-btn {
+      background: #fff;
+      color: #000;
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem 3rem 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      max-width: 800px;
+      margin: 0 auto 1.5rem auto;
+      background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: #94a3b8;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin: 3rem 0 1.5rem 0;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: #121214;
+      border: 1px solid #232326;
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, border-color 0.2s;
+      min-height: 180px;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #3b82f6;
+    }
+    .card img {
+      max-width: 100%;
+      max-height: 140px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+    .card .label {
+      font-size: 0.75rem;
+      color: #71717a;
+      margin-top: 0.75rem;
+      word-break: break-all;
+      text-align: center;
+    }
+
+    .svg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+    .svg-card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+    }
+    .svg-card img {
+      width: 38px;
+      height: 38px;
+      filter: invert(1);
+    }
+    .svg-card span {
+      font-size: 0.65rem;
+      color: #666;
+      margin-top: 0.5rem;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .view-original-box {
+      margin-top: 4rem;
+      padding: 2.5rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
+      border: 1px solid #27272a;
+      text-align: center;
+    }
+    .view-original-box a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #3b82f6;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      Agen AI <span class="badge">Cloned Assets Hub</span>
+    </div>
+    <nav>
+      <a href="#images">Images</a>
+      <a href="#icons">Icons & SVGs</a>
+      <a href="#fonts">Fonts</a>
+      <a href="index_original.html" class="cta-btn" target="_blank">Open Framer DOM</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Agen AI Extracted Workspace</h1>
+      <p>Successfully extracted graphics, UI modules, typography, and vectors from agen-ai.framer.website</p>
+    </div>
+
+    <h2 class="section-title" id="images">🖼️ Visual Graphics & Mockups</h2>
+    <div class="grid" id="images-container">
+      <!-- Populated via script -->
+    </div>
+
+    <h2 class="section-title" id="icons" style="margin-top: 3.5rem;">✨ Extracted UI Icons & Vectors</h2>
+    <div class="svg-grid" id="svg-container">
+      <!-- Populated via script -->
+    </div>
+
+    <div class="view-original-box">
+      <h2>Full Framer Page Structure</h2>
+      <p style="color:#a1a1aa; margin-top: 0.5rem;">Access the exact mirrored Framer snapshot file</p>
+      <a href="index_original.html" target="_blank">Launch Original Framer Snapshot ↗</a>
+    </div>
+  </div>
+
+  <script>
+    // List extracted images
+    const images = [
+      "6Q1zpH0ncywE2YkCo9FQ1bZrXw.png",
+      "D3ZQRFsyC3I0z6aUqii7ffrCUo.png",
+      "f6tt1LeAY01SkYHXO9Jbs2jj8.png",
+      "FpIRw2KQSjI9QVB60pWdSXU93BE.png",
+      "HbKIFNMRKRTXm5TU6Hop0JnwCxk.png",
+      "k9AWPV5pBPUdxJt7SFCFqvLBGY.png",
+      "lnkTotUqaJXvy2zsi1DllH32Nc.png",
+      "m80ZhxX0AHAi3ZQzPq6jtq80gTA.png",
+      "OWVdG7nO7rtog4qGyoyrsa1xCgg.png",
+      "rqVSVnAHhoNthlE03dQvbuRWlM.png",
+      "SXSxBewFpUbMT1trajLleO10P3Y.png",
+      "tqt3396FxEMSQd1qcaERFm8p29I.png",
+      "TugH7LCEB6KlGiAMPCb4QnlMD4.png",
+      "u07YBaHc16abPJ4SfKOSMz3o9Y.png",
+      "Wqo1gDJ2spyalp3OsObh1QBciSw.png",
+      "5N22TgsC5COekVNfTUPjl3WiMQ.jpg",
+      "JAwg2A4GAzIyvReM0mGSgTlkV5U.jpg"
+    ];
+
+    const imgContainer = document.getElementById("images-container");
+    images.forEach(img => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <a href="../extracted_assets/images/${img}" target="_blank">
+          <img src="../extracted_assets/images/${img}" alt="${img}" loading="lazy" />
+        </a>
+        <div class="label">${img}</div>
+      `;
+      imgContainer.appendChild(card);
+    });
+
+    const svgs = [
+      "05zS8YnanuInECiF6Lnfahdg.svg",
+      "0lzOtIsiMWtaMiDLW98OuQis.svg",
+      "11KSGbIZoRSg4pjdnUoif6MKHI.svg",
+      "2wj5c0kjMcZPDqUhNuOgQLpdxI.svg",
+      "3GhgGET3u37evNnuEqXx3dapyCo.svg",
+      "3mYjyBkO1taOXWFFdYdWawzYdU.svg",
+      "5EEPK2Zcz7lvoEeuvzzHgFprWi0.svg",
+      "6tTbkXggWgQCAJ4DO2QEdXXmgM.svg",
+      "7BRRgjQmsdPqz3UFyvFyRKav0gY.svg",
+      "9l4yP2TozMt7PV8IQVfJVwfPXVc.svg",
+      "9ujF8ABgoO0V5nv7UJwe1WXY2Mw.svg",
+      "9vtxyHf7srKVSmizrOUduGv07xw.svg",
+      "B208FkGjVVS7zckhSDds23aw1k.svg",
+      "BcAN8as4CkSXYopMDgvhqZ8Txk.svg",
+      "BJENEiVX7grDPD7gKZ1wBVUbs.svg",
+      "BLEAUMur4WEzHxcyK0lVAeRR9UE.svg",
+      "C1wRzBx9Q5Hv2DcxKlSG4B7NHo.svg",
+      "C9nvRsXazze7sZFfDoDtGH8YIZ0.svg",
+      "CrdXLUx6pXaoTO3kpD5mSNNcNg.svg",
+      "eALb2l8VMJIcizvetlZJFXLrzj0.svg",
+      "EN3OwpPWyqswwko0DLprPUpKjX0.svg",
+      "fepQvHxQO0K9C8tr3G8po3dRonc.svg",
+      "FQVi7LbqFqqyGOKesYKHjITlIw.svg",
+      "HNv7nFPVkkA6qNBsybNZM22f5f0.svg",
+      "I8Y1V0aZ1Yp7l57r5CkGnnnSFM.svg",
+      "iPJBeCVdtlOOx0RCojmB366vhw.svg",
+      "ir3Y9RLfZ854i7W0EQDhS0Zl4M.svg",
+      "JkS4p3zL6lKcHZzTWRJIlg32O8.svg",
+      "l3DoNTRogehL2x9JiDlhIPdK4fQ.svg",
+      "LQzz6Xgeq2bSRwjEyr5inS0xDw4.svg",
+      "LxdcCdim8R8lIcC4W8N4ZEgKSk.svg",
+      "m63vlc97c5z0RavU0rDAHvULw.svg",
+      "Mh8NM1imx1DyHpdL6DLKL43G8.svg",
+      "N7WdKszYpXppuGfH2FoUpbIP2tw.svg",
+      "NkjlZR5lFbTdVryU8NRj4lQzEw.svg",
+      "nXNfmzV02K639h9INF5Zvc4Zo.svg",
+      "ozjI9qIQdBH0RL9AsOT9QKh380E.svg",
+      "PuuhMw7Xhf62nop867Ag2tqPxw.svg",
+      "qVLj3y5EdQH7YWuhcPMulvu5lM.svg",
+      "r1mNHSvoYs5OjWDxHzglxMcPgE.svg",
+      "rUGvCaUGcHXaP4CsuLmu2tE.svg",
+      "sSVqqodowQtZoknqyOev1T5LYkc.svg",
+      "tgFn5KOHxuVzRnxxY5K6e8rrbc.svg",
+      "uGu3ijpEm0n94Dmmn2W9tbWA4w.svg",
+      "VNUMGxu8bHPlCHeUaFBUKKuh2OQ.svg",
+      "WvP4LbosJRK7dIbVrsRrHOLPufw.svg",
+      "yfsLT2onNPzdTy6lskdqFZwOeA.svg",
+      "zhU8cI9xwgR4X1ydqycLzILYMDw.svg",
+      "ZQk79Svt6WtNqLB0qQqVt6pC0.svg",
+      "ZxxZHcSGVGRg1Rvwlzz0QFTSpKk.svg"
+    ];
+
+    const svgContainer = document.getElementById("svg-container");
+    svgs.forEach(svg => {
+      const card = document.createElement("div");
+      card.className = "svg-card";
+      card.innerHTML = `
+        <a href="../extracted_assets/icons_svg/${svg}" target="_blank">
+          <img src="../extracted_assets/icons_svg/${svg}" alt="${svg}" />
+        </a>
+        <span>${svg}</span>
+      `;
+      svgContainer.appendChild(card);
+    });
+  </script>
+</body>
+</html>
+
