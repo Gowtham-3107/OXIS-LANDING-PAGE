@@ -31,3 +31,4 @@ with open(offline_html_path, "w", encoding="utf-8") as f:
     f.write(modified)
 
 print(f"Offline HTML created: {offline_html_path}")
+
