@@ -23,18 +23,23 @@ const MIME_TYPES = {
 
 const server = http.createServer((req, res) => {
   let reqUrl = decodeURI(req.url.split('?')[0]);
+  if (reqUrl === '/' || reqUrl === '') {
+    reqUrl = '/index.html';
+  }
 
   let filePath = path.join(__dirname, reqUrl);
 
-  // If path doesn't exist, check inside cloned_site/
+  // Fallback lookups
   if (!fs.existsSync(filePath)) {
-    let alt = path.join(__dirname, 'cloned_site', reqUrl);
-    if (fs.existsSync(alt)) {
-      filePath = alt;
+    if (reqUrl.startsWith('/assets/')) {
+      let alt = path.join(__dirname, 'cloned_site', reqUrl);
+      if (fs.existsSync(alt)) filePath = alt;
+    } else {
+      let alt = path.join(__dirname, 'cloned_site', reqUrl);
+      if (fs.existsSync(alt)) filePath = alt;
     }
   }
 
-  // Security check
   if (!filePath.startsWith(__dirname)) {
     res.statusCode = 403;
     res.end('Forbidden');
@@ -50,10 +55,7 @@ const server = http.createServer((req, res) => {
     }
 
     if (stats.isDirectory()) {
-      filePath = path.join(filePath, 'index_live.html');
-      if (!fs.existsSync(filePath)) {
-        filePath = path.join(path.dirname(filePath), 'index.html');
-      }
+      filePath = path.join(filePath, 'index.html');
     }
 
     const ext = path.extname(filePath).toLowerCase();
@@ -72,6 +74,6 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`\n======================================================`);
   console.log(`   OXIS LANDING PAGE SERVER RUNNING`);
-  console.log(`   http://localhost:${PORT}/`);
+  console.log(`   Open: http://localhost:${PORT}/`);
   console.log(`======================================================\n`);
 });
