@@ -24,26 +24,17 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   let reqUrl = decodeURI(req.url.split('?')[0]);
 
-  // If requesting root, redirect to /cloned_site/index_live.html so relative paths resolve inside /cloned_site/
-  if (reqUrl === '/' || reqUrl === '') {
-    res.writeHead(302, { 'Location': '/cloned_site/index_live.html' });
-    res.end();
-    return;
-  }
-
   let filePath = path.join(__dirname, reqUrl);
 
-  // Fallback: If requesting /assets/... from root, check in cloned_site/assets/
+  // If path doesn't exist, check inside cloned_site/
   if (!fs.existsSync(filePath)) {
-    if (reqUrl.startsWith('/assets/')) {
-      let altPath = path.join(__dirname, 'cloned_site', reqUrl);
-      if (fs.existsSync(altPath)) {
-        filePath = altPath;
-      }
+    let alt = path.join(__dirname, 'cloned_site', reqUrl);
+    if (fs.existsSync(alt)) {
+      filePath = alt;
     }
   }
 
-  // Security check to prevent traversing outside
+  // Security check
   if (!filePath.startsWith(__dirname)) {
     res.statusCode = 403;
     res.end('Forbidden');
@@ -52,14 +43,17 @@ const server = http.createServer((req, res) => {
 
   fs.stat(filePath, (err, stats) => {
     if (err) {
-      console.log(`[404] ${req.url} -> ${filePath}`);
+      console.log(`[404] ${req.url}`);
       res.statusCode = 404;
       res.end(`File not found: ${reqUrl}`);
       return;
     }
 
     if (stats.isDirectory()) {
-      filePath = path.join(filePath, 'index.html');
+      filePath = path.join(filePath, 'index_live.html');
+      if (!fs.existsSync(filePath)) {
+        filePath = path.join(path.dirname(filePath), 'index.html');
+      }
     }
 
     const ext = path.extname(filePath).toLowerCase();
@@ -76,6 +70,8 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-  console.log(`Direct link: http://localhost:${PORT}/cloned_site/index_live.html`);
+  console.log(`\n======================================================`);
+  console.log(`   OXIS LANDING PAGE SERVER RUNNING`);
+  console.log(`   http://localhost:${PORT}/`);
+  console.log(`======================================================\n`);
 });
