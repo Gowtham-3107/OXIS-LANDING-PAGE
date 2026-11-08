@@ -49,3 +49,4 @@ with open("cloned_site/index_offline.html", "w", encoding="utf-8") as f:
     f.write(html)
 
 print("Created cloned_site/index_live.html and updated index_offline.html with complete hydration pipeline!")
+
