@@ -4,3 +4,4 @@ with open(target, "r", encoding="utf-8") as f:
 
 idx = c.find("k=D(async(...e)=>{C({isPressed:!1}),w(`P3R3KKP8c`)}),")
 print(c[idx:idx+2000])
+

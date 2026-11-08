@@ -4,3 +4,4 @@ with open(target, "r", encoding="utf-8") as f:
 
 idx = c.find("Bo={")
 print(c[idx:idx+800])
+

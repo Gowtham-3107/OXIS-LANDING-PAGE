@@ -41,3 +41,4 @@ with open(target, "w", encoding="utf-8") as f:
     f.write(c_new)
 
 print("Successfully replaced accordion callbacks with true toggle & close behavior!")
+

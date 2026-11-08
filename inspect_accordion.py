@@ -10,3 +10,4 @@ for m in re.finditer(r'[a-zA-Z0-9_$]+\s*=\s*(?:useState|o)\([^)]*\)', c):
     end = min(len(c), m.end() + 100)
     print(c[start:end])
     print("-" * 50)
+

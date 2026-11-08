@@ -4,3 +4,4 @@ with open(target, "r", encoding="utf-8") as f:
 
 idx = c.find("MEs6fvKPJ-container")
 print(c[idx-3000:idx])
+

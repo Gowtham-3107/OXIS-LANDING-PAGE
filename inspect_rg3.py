@@ -6,3 +6,4 @@ idx = c.find("AI Strategy & Mapping")
 print("Position in rg3Gd...:", idx)
 if idx != -1:
     print(c[max(0, idx - 400):min(len(c), idx + 800)])
+
